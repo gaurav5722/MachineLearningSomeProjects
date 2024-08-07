@@ -1,0 +1,16 @@
+1)DecisionTree:-
+mean:  4.3545573318139335
+standard deviation  0.8842172810136002
+
+2)Linear Regression:-
+mean:  5.037482786117751
+standard deviation  1.059438240560695
+
+3)RandomForest Regression:-
+mean:  3.3497759022830507
+standard deviation  0.6493972559759817
+
+
+RandomForest Regression is the best model  as it has less mean +- standard deviation 
+next better model is Decision Tree
+next better model is Linear Regreession

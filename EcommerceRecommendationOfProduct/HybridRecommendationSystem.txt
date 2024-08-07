@@ -1,0 +1,3 @@
+Hybrid recommendation system  combines two or more recommendation techniques to leaverage the  strengths of each and mitigate their weaknesses.
+
+It is combination of Content base filtering  and Collaborative Filtering

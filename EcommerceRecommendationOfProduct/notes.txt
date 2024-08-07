@@ -1,0 +1,74 @@
+//Content Based Recommendation
+
+Content-based recommendation system suggest items to users based on the attributes or features of the items and the user's previous queried attributes.
+ eg:- If a user search for action movie than the user sees the next recommendataion as action movie
+
+Flow for Content-based recommendation System:-
+
+ User Preferences(e.g.,liked movies)-->Extract Features(e.g.,genre,actors,director)
+-->Compare with Item Features(e.g.Other movies)--> Recomend Similar Items(e.g.,movies with similar genre,actors)
+
+                                      
+
+                                                                                       TF_IDF Vectorizer
+
+TF-IDF(Term Frequency-Inverse Document Frequency) is a statistical measure used to evaluate the importance of a word in a document
+relative to a collection of documents(or corpus).
+It helps in transforming text data into numerical data ,which is useful for machine learning algorithms.
+
+keyConcepts:-
+
+1)Term Frequency(TF) :- Measure how frequently a word appears in a document.The more frequent a word is in a document , the higher its 
+TF value.
+
+                                  TF=Number of times term t appears in a document/Total number of terms in the document
+
+2)Inverse Document Frequency(IDF):- Measures the importance of a word. Words that are common across all documents have lower IDF values. It helps to reduce the weight of common words like "the","is" ,etc.
+      
+                                 IDF=Log    (Total number of documents)/(Number of documents containing the term t)
+
+3)TF-IDF Scores: Combines TF and IDF .A higher TF-IDF score indicates the word is important in that document but not common across documnets.
+   
+                                TF-IDF = TF X IDF
+
+                                                                                        TF_IDF Vectorizer Steps:-
+
+            For each  Documents(All rows)(Text Data)---> Compute Term Frequency(TF) --> Compute Inverse Document Frequency(IDF)
+           --->Calculate TF-IDF Scores--->Transform Text into Numerical Vectors
+
+  steps:- 
+ 1.Compute TF:- For each documnet,count the frequency of each term
+ 2.Compute IDF:-For each term,calculate the inverse document frequency
+ 3.Compute TF-IDF:- Multiply the TF by IDF for each term in each document.
+
+
+Example Products and Their IF-IDF Transformation
+Assume we have the following documents
+1.Document 1:- "I love machine learning"
+2.Document 2:-"Machine learning is fun"
+3.Document 3:-"Deep learning with TensorFlow"
+
+For the term "machine" in Document 1:
+TF("machine") in Document 1 =1/4 (since there are 4 terms in Document 1)
+IDF("machine")=log(3/2) (since "machine" appears in 2 out of 3 documents)
+TF-IDF("machine")=(1/4)*log(3/2)
+   Score=90.0 (most important word)
+
+                                                                  Cosine Similarity:-
+
+Cosine Similarity is a metric used to measure how similar two vectors are, regardless of their magnitude .It calculates the cosine of the angle between two non-zero vectors in a multi-dimensional space.
+
+                                                  Cosine Similarity = cos( θ)= A.B / |A| |B|
+                 Assume we have the  following document vectors after applying TF-IDF:
+1.)Document 1 Vector:- [0.2,0.4,0.4,0.1]
+2.)Document 2 Vector:- [0.1,0.3,0.4,0.4]
+
+ Calculate Dot Product:- A.B=(0.2 x 0.1)+(0.4 x 0.3)+(0.1 x 0.4)
+    A.B=0.02+0.12+0.16=0.34
+   |A| =√(0.2)^2+(0.4)^2+(0.4)^2+(0.1)^2=√0.37
+   |B|=√(0.1)^2+(0.3)^2+(0.4)^2+(0.4)^2= √0.42
+  Therefore,
+                              CosineSimilarity = 0.34/0.61*0.65 ≈ 0.34/0.3965  ≈0.86
+
+                               **The more the similarity score the more similar the data points are**
+ 

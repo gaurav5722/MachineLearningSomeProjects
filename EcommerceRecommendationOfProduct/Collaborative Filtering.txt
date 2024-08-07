@@ -1,0 +1,54 @@
+Collaborative Filtering is a technique used in recommendation system to make predictions about a user's preferences based on the preferences of many users.
+ 
+
+User-item Rating Matrix:-
+
+                  Product 1    Product 2   Product 3   Product 4    Product 5   Product 6    Product 7    Product 8    Product 9
+
+User 1           5                4                 0                0                   1                  1                0                    0                  0       
+
+User 2           0                5                 4                0                   0                  0                2                    0                  0
+
+User 3           1                0                 0                4                   4                  0                 0                   5                  0
+
+User 4           0                0                 0                0                   5                  4                 0                   0                  0
+
+User 5           0                0                 5                 4                  0                  0                 0                    0                 4
+
+
+In this matrix , a value of 0 indicates that the user has not rated the product.
+
+Steps:-
+
+1.Compute Similarity Between Users:- Use a  similarity measure  like cosine similarity of Pearson correlation to find users who have similar preferences.
+2.Select Neighbors:- Choose a subset of similar users(neighbours)
+3.Recommend Items:- Recommend Items that the neighbors have rated highly but the target user hasn't rated yet.
+
+E.g:- For User 1 and User2:- 
+  Cosine Similarity:- (5*0+4*5+0*4+0*0+1*0+1*0+0*2+0*0+0)/(√(5)^2+(4)^2+(1)^2+(1)^2 x √(5)^2+(4)^2+(2)^2)
+  
+           Cosine Similarity= 20/(√43x√45) ≈ 0.67
+For User 1 and User3:- 
+  Cosine Similarity:- (5*1+4*0+0*0+0*4+1*4+1*0+0*0+0*5+0)/(√(5)^2+(4)^2+(1)^2+(1)^2 x √(1)^2+(4)^2+(4)^2+(5)^2)
+  
+           Cosine Similarity= 9/(√43x√42) ≈ 0.21
+For User 1 and User4:- 
+  Cosine Similarity:- (5*0+4*0+0*0+0*0+1*5+1*4+0*0+0*0+0)/(√(5)^2+(4)^2+(1)^2+(1)^2 x √(5)^2+(4)^2+(2)^2)
+  
+           Cosine Similarity= 9/(√43x√45) ≈ 0.2
+For User 1 and User5:- 
+  Cosine Similarity:- (5*0+4*0+0*5+0*4+1*0+1*0+0*0+0*0+0)/(√(5)^2+(4)^2+(1)^2+(1)^2 x √(5)^2+(4)^2+(2)^2)
+  
+           Cosine Similarity= 0/(√43x√45) ≈ 0
+
+
+     From above we see that the user1 is most similar to user 2,with a similarity of 0.67
+Thus ,we see the similarity with all the other user  with user 2 and select greatest similarity user
+Thus ,we see the similarity with all the other user  with user 3 and select greatest similarity user
+Thus ,we see the similarity with all the other user  with user 4 and select greatest similarity user
+Thus ,we see the similarity with all the other user  with user 5 and select greatest similarity user
+Thus ,we see the similarity with all the other user  with user 6 and select greatest similarity user
+                                                        .
+                                                         .
+                                                         .
+Thus ,we see the similarity with all the other user  with user n and select greatest similarity user
