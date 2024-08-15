@@ -1,0 +1,11 @@
+We will Learn in this project :-
+
+1.How to encode categorical columns to Numerical
+
+2.How to Balance Dataset(Classes Distribution)
+
+3.How to Scale Large Values (Equal Importance)
+
+4.Models :- RandomForest,DecisionTree,SVC,KNN,GNB,Logistic Regression
+
+5.Accuracy Score,Confusion Matrix
